@@ -5,20 +5,27 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "aiohttp>=3.11.11",
-    "beautifulsoup4>=4.12.3",
-    "curl-cffi>=0.7.4",
-    "duckdb>=1.1.3",
-    "fuzzywuzzy[speedup]>=0.18.0",
-    "geopandas>=1.0.1",
-    "matplotlib>=3.10.0",
-    "motor>=3.6",
-    "playwright>=1.49.1",
-    "pyarrow>=19.0.0",
-    "rich>=13.9.4",
+  "aiohttp>=3.11.11",
+  "beautifulsoup4>=4.12.3",
+  "curl-cffi>=0.7.4",
+  "duckdb>=1.1.3",
+  "fuzzywuzzy[speedup]>=0.18.0",
+  "geopandas>=1.0.1",
+  "matplotlib>=3.10.0",
+  "motor>=3.6",
+  "playwright>=1.49.1",
+  "pyarrow>=19.0.0",
+  "rich>=13.9.4",
 ]
 
+[dependency-groups]
+dev = ["sea-scrapping", "ruff>=0.7.4"]
 
-[tool.ruff.lint]
-# List of rules that should never be auto-fixed
-unfixable = ["F401"]
+[tool.pyright]
+venvPath = '.'
+include = ["src"]
+venv = ".venv"
+exclude = ['.venv']
+
+[tool.uv.sources]
+sea-scrapping = { workspace = true }
